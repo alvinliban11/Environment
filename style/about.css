@@ -1,0 +1,12 @@
+body{
+    background:url("../img/bg.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#main{
+    margin:200px 0;
+}
+.container p{
+    font-weight: 600;
+}

@@ -1,0 +1,8 @@
+    .navbar-brand img{
+        border-radius: 50%;
+        width:50px;
+    }
+ul li:hover{
+    background:green;
+    border-radius: 10px;
+}

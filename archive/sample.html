@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .sidenav{
+            background: #111;
+            width: 0;
+            height:100%;
+            position: fixed;
+            top:0;
+            left:0;
+            padding-top:35px;
+            overflow-x: hidden;
+            transition: .6s;
+            z-index: 1;
+        }
+        .sidenav ul li{
+            list-style: none;
+            padding:8px 8px 8px 35px;
+        }
+        .sidenav a{
+            color:#fff;
+            text-decoration: none;
+            font-size: 25px;
+        }
+        .sidenav .closetbtn{
+            font-size: 35px;
+            position: absolute;
+            top:0;
+            right:10px;
+            z-index: 1;
+        }
+        .sidenav ul li a:hover{
+            background:#05c46b;
+            padding:5px;
+            border-radius: 10px;
+        }
+        #main{
+            transition: .6s;
+            padding:20px;
+        }
+        nav{
+            background:#111;
+            height:50px;
+        }
+        nav .navbar-brand{
+            color:green;
+            font-weight: 600;
+        }
+        nav span{
+            cursor: pointer;
+            font-size: 25px; 
+            color:#fff;
+            line-height: -1px;
+            margin-left: 30px;
+        }
+        .row{
+            display: flex;
+            justify-content: center;
+            grid-gap: 5px;
+        }
+        .schedule{
+            background: #ffa801;
+            width:350px;
+            height:200px;
+
+        }
+        .enrollee{
+            background: dodgerblue;
+            width:350px;
+            height:200px;
+        }
+        .courses{
+            margin-top:20px;
+            width:90%;
+            background: #ccc;
+            color:#000;
+            margin-left:0;
+            height:350px;
+        }
+        img{
+            width:100px;
+            margin-top:50px;
+        }
+        .courses .header{
+            font-weight: 700;
+            font-size: 40px;
+            text-align: center;
+        }
+        .enrollee span{
+           position: relative;
+           top:20%;
+           font-weight: 600;
+           color:#fff;
+        }
+        .schedule span{
+            position: relative;
+           top:20%;
+           font-weight: 600;
+           color:#fff;
+        }
+        .vertical, .verticals{
+            border-left:2px solid #fff;
+            height:200px;
+        }
+       .courses .content .span{
+            height: 40px;
+            width:100vh;
+            background: green;
+            margin:10px 10px;
+        }
+/* Style the buttons */
+
+/* Style the active class (and buttons on mouse-over) */
+.active {
+  background-color: #05c46b;
+  color: white;
+  border-radius: 10px;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <span onclick="openav()">&#9776;</span>
+        <span class="navbar-brand">Environmental Management Workshop</span>
+    </nav>
+    <div id="sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closetbtn" onclick="closenav()">&times;</a>
+        <ul>
+            <li  ><a href="#"  class="btn active">Dashboard</a></li>
+            <li><a href="#"  class="btn" >Scheduling</a></li>
+            <li ><a href="#"  class="btn">Enrollment</a></li>
+            <li><a href="#"  class="btn">Courses</a></li>
+            <li  ><a href="#" class="btn">Admin</a></li>
+        </ul>
+    </div>
+    <main id="main">
+       <div class="row">
+        <div class="col-xl-5 col-sm-12 col-lg-5">
+            <div class="container">
+                <div class="schedule">
+                  <div class="row">
+                      <div class="col-4"><img src="icons8_calendar_240px_1.png" alt=""></div>
+                      <span class="verticals"></span>
+                      <div class="col-6 text-center"><span>Pending Schedule<p class="text-center" style="font-size: 80px;">10</p></span></div>
+                  </div>
+                </div>
+            </div>       
+        </div>
+
+           <div class="col-xl-5 col-sm-12 col-lg-5">
+            <div class="container">
+                <div class="enrollee">
+                  <div class="row">
+                      <div class="col-4"><img src="icons8_user_64px.png" alt=""></div>
+                      <span class="vertical"></span>
+                      <div class="col-6 text-center"><span>Pending Enrollee<p class="text-center" style="font-size: 80px;">10</p></span></div>
+                  </div>
+                </div>
+            </div>       
+        </div>
+
+           <div class="col-12">
+               <div class="container">
+                <div class="courses">
+                    <div class="header">Courses Density</div>
+                   <div class="content">
+                       <div class="span"></div>
+                       <div class="span"></div>
+                       <div class="span"></div>
+                       <div class="span"></div>
+                   </div>
+                </div>   
+                </div>
+           </div>
+       </div>
+     
+    </main>
+    
+    <script>
+        function openav(){
+            document.querySelector("#sidenav").style.width = "250px";
+        }
+        function closenav(){
+            document.querySelector("#sidenav").style.width = "0";
+        }
+
+        // Get the container element
+var btnContainer = document.getElementById("sidenav");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+    </script>
+</body>
+</html>

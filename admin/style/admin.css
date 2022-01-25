@@ -1,0 +1,26 @@
+
+#main{
+   display: grid;
+   align-content: center;
+   height: 70vh;
+   padding:20px;
+}
+button{
+    margin:10px;
+}
+table{
+    background:#fff;
+}
+.main-container{
+    padding:20px;
+    background:rgba(0,0,0,0.89);
+    width:auto;
+    border-radius: 5px;
+    height: auto;
+}
+.navbar .heading{
+    font-weight: 800;
+}
+.btns{
+    float: right;
+}

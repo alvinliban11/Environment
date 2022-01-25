@@ -1,0 +1,25 @@
+
+#main{
+    margin:100px 0;
+    scroll-behavior: smooth;
+}
+.container p{
+    font-weight: 600;
+}
+.main-container{
+    width:250px;
+    height:300px;
+    border-radius: 10px;
+    background:rgba(0,0,0,0.6);
+    color:#fff;
+    padding:20px;
+}
+.main-container p{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+hr{
+    background: #fff;
+}
+

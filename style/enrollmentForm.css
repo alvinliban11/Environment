@@ -1,0 +1,33 @@
+body{
+    background:url("../img/bg.jpg");
+    background-attachment: fixed;
+    background-position:top;
+}
+#main{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+form{
+    height:350px;
+    width:450px;
+    background:rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding:10px;
+}
+  .btn1, .btn2{
+    font-weight: bold;
+    width:120px;
+    height:60px;
+    color:#000;
+    margin:20px 0;
+}
+form p{
+    font-weight: 800;
+}
+.btn3{
+    margin:50px 0;
+    color:#000;
+    font-weight: bold;
+} 

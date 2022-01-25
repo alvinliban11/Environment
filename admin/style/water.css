@@ -1,0 +1,19 @@
+
+#main{
+    display: flex;
+    align-items: center;
+    height:80vh;
+}
+table{
+    background:#fff;
+}
+.container{
+    padding:20px;
+    background:rgba(0,0,0,0.89);
+    width:80%;
+    transition: 1s;
+    border-radius: 5px;
+}
+.buttons{
+    float: right;
+}

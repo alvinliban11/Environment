@@ -1,0 +1,91 @@
+body{
+    background:url("../img/noah-buscher.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;  
+}
+#main{
+    min-height:100vh;
+}
+.main-body{
+    width: auto;
+    height:auto;
+    background:rgba(0, 0, 0, 0.5);
+    padding:20px;
+    border-radius: 10px;
+}
+.main-body h3{
+    background:#7f8c8d;
+    color:#fff;
+    padding:5px;
+    font-size: 25px;
+
+}
+.header h3{
+    background: none;
+    text-align: center;
+    font-weight: 800;
+    font-size: 35px;
+}
+.main-body h3{
+    background:#7f8c8d;
+    color:#fff;
+    padding:5px;
+    font-size: 25px;
+}
+.main-body img{
+    width:30px;
+}
+.main-header{
+    font-weight: 800;
+}
+.main-header h1{
+    font-size: 70px;
+    color:#fff;
+}
+.main-header button{
+    background:#7f8c8d;
+    color:#fff;
+    border:none;
+    padding:5px;
+    border-radius: 5px;
+}
+.main-body h3{
+    cursor: pointer;
+}
+.header p {
+    background:rgba(0, 0, 0, 0.5);
+    position: absolute;
+    right:95%;
+    top:-20%;
+    width:200px;
+    height:250px;
+    display: none;
+    border-radius: 10px;
+    padding:20px;
+
+
+}
+.header p::before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width:20px;
+    height:25px;
+    left:185px;
+    top:35%;
+    border-bottom-right-radius: 600px;
+    border-top-right-radius: 600px / 200px;
+    transform: rotate(150deg);
+}
+ .header:hover > p{
+    display: block;
+    color:#fff;
+}
+
+@media only screen and (max-width:550px){
+   .main-body h3{
+        font-size: 20px;
+    }
+}

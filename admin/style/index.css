@@ -1,0 +1,54 @@
+#main{
+    transition: .6s;
+    padding:20px;
+    margin-top:50px;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    grid-gap: 5px;
+}
+.schedule{
+    background: #ffa801;
+    width:350px;
+    height:200px;
+
+}
+.enrollee{
+    background: dodgerblue;
+    width:350px;
+    height:200px;
+}
+.courses{
+    margin-top:20px;
+    width:90%;
+    background: #ccc;
+    color:#000;
+    margin-left:0;
+    height:350px;
+}
+img{
+    width:100px;
+    margin-top:50px;
+}
+.courses .header{
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+}
+.enrollee span{
+   position: relative;
+   top:20%;
+   font-weight: 600;
+   color:#fff;
+}
+.schedule span{
+    position: relative;
+   top:20%;
+   font-weight: 600;
+   color:#fff;
+}
+.vertical, .verticals{
+    border-left:2px solid #fff;
+    height:200px;
+}

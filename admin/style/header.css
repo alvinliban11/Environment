@@ -1,0 +1,9 @@
+.navbar{
+    background:rgba(0,0,0,0.89);
+}
+.navbar-brand{
+    font-size: 30;
+}
+button{
+    margin:10px;
+}
