@@ -1,30 +1,5 @@
 <?php include 'include/header.php';  ?>
 
-<?php 
-
-session_start();
-include 'db.php';
-if (isset($_POST['update']))
-{
-    $upEmail = $_POST['upEmail'];
-  
-
-    $queryCreate = "INSERT INTO learner (`Email`,`IdNum`) VALUES ('$upEmail','')";
-
-    $sqlCreate = mysqli_query($conn, $queryCreate);
-
- 
-   
-    
-}
-
-
-
-
-
-
-
-?>
 
 <head>
     <title>Enrollment For Student</title>
@@ -34,15 +9,15 @@ if (isset($_POST['update']))
        
       
             <div class="col-md-6 col-md-6">
-    <form   method="POST">
+    <form method="POST">
 
 
         <h3>ENROLLMENT FORM FOR LEARNER</h3>  
                 <div class="form-group">
-                    Email:<input class="form-control" type="email"  id="upEmail" name="upEmail" placeholder="Email"> 
+                    Email:<input class="form-control"  id="email" type="text"  placeholder="Email"> 
                 </div>
                 <div class="form-group">
-                    Full Name:<input class="form-control" type="text" placeholder="Last Name"> 
+                    Full Name:<input class="form-control" id="fullname" type="text" placeholder="Last Name"> 
                 </div>
                 <div class="form-group">
                     Birthdate:<input class="form-control" type="date" placeholder="Birthdate"> 
@@ -78,7 +53,7 @@ if (isset($_POST['update']))
 
                   <div class="form-group text-center mb-3">
             <a class="btn btn-danger form-inline" type="submit" name="cancel" href="enrollmentForm.php">Cancel</a>
-            <button type="button" class="btn btn-success form-inline" name="update" onclick="msg()" >Update</button>
+            <button type="button" id="btns" class="btn btn-success form-inline" onclick="msg()" name="update"  >Update</button>
                 </div>
 
 
@@ -107,9 +82,26 @@ if (isset($_POST['update']))
 
 </main>
 
+<script>
+       $(document).ready(function(){
+           $("#btns").click(function(){
+                var email = $("#email").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "include/add.php",
+                    data: {
+                        email
+                    },
+                    success: function(data){
+                        console.log(data);
+                    }
+                });
+           });
+       });
+    </script>
 
 <script type="text/javascript">
-
         function msg(){
         swal({
     icon: "success",
@@ -119,8 +111,7 @@ if (isset($_POST['update']))
     }).then(function() {
         window.location.href = "course_list.php";
     });
-    }
-
-    
+    }    
 </script>
+
 <?php include 'include/footer.php'?>

@@ -1,14 +1,14 @@
 <?php
 
 $localhost = "localhost";
-$dbname = "root";
+$username = "root";
 $pass = "";
 $dbname = "learners";
 
-$conn = $query_connect($localhost, $dbname, $pass, $dbname);
+$conn = new mysqli($localhost, $username, $pass, $dbname);
 
-if(!$conn){
-    die("connection failed". $conn->mysql_error);
+if($conn->connect_error){
+    die("connection failed". $conn->mysqli_error);
 }
 
 ?>
