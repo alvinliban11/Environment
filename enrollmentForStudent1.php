@@ -1,11 +1,9 @@
 <?php include 'include/header.php';  ?>
 
 <?php 
+
 session_start();
-
-include "db.php";
-
-
+include 'db.php';
 if (isset($_POST['update']))
 {
     $upEmail = $_POST['upEmail'];
