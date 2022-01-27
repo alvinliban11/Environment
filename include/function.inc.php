@@ -52,6 +52,19 @@ function checkAnswer($conn, $quiz_id, $correct_ans){
 	//	mysqli_close($conn);
 }
 
+function showCorrectAnswer($conn, $quiz_id){
+		$sql = "SELECT * FROM quiztbl WHERE quiz_id = '".$quiz_id."'";
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) > 0) {
+				 if($row = mysqli_fetch_assoc($result)) {
+		   			return $row['correct_ans'];
+		  }
+		}
+
+	//	mysqli_close($conn);
+}
+
 
 function checkFinalQuiz($conn, $lesson_id){
 		$sql = "SELECT * FROM quiztbl WHERE lesson_id = '".$lesson_id."'";
@@ -97,4 +110,18 @@ function checkUserQuiz($conn, $user_id, $lesson_id){
 
 	//	mysqli_close($conn);
 }
+
+
+function showResult($conn, $user_id){
+		$sql = "SELECT * FROM  resulttbl WHERE user_id = '".$user_id."' AND lesson_id = '".$lesson_id."'";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+				 if($row = mysqli_fetch_assoc($result)) {
+		   			return $row['score'];
+		  }
+		}
+
+	//	mysqli_close($conn);
+}
+
 
