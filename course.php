@@ -1,18 +1,6 @@
-<?php 
-
-include 'include/header.php';
-include 'include/connection.inc.php';
-include 'include/function.inc.php';
-
-$_SESSION['lesson_id'] = 2;
-$_SESSION['user_id'] = 1;
-
-
-
-
- ?>
+  <?php include 'include/header.php'; ?>
 <head>
-    <title></title>
+    <title>Lesson</title>
   <style type="text/css">
       /* The sidebar menu */
 .sidenav {
@@ -55,8 +43,8 @@ $_SESSION['user_id'] = 1;
 <div class="sidenav bg-light">
 <div class="list-group">
  <span class="text-primary">Lessons</span>
-  <a href="lesson.php" class="list-group-item list-group-item-action" >Reading: Lesson 1</a>
-  <a href="lesson_quiz.php" class="list-group-item list-group-item-action" style=" border-left: 7px solid green;">Lesson 1 - Quiz</a>
+  <a href="lesson.php" class="list-group-item list-group-item-action" style=" border-left: 7px solid green;">Reading: Lesson 1</a>
+  <a href="lesson_quiz.php" class="list-group-item list-group-item-action">Lesson 1 - Quiz</a>
   <a href="#" class="list-group-item list-group-item-action">...</a>
 </div>
 </div>
@@ -73,49 +61,14 @@ $_SESSION['user_id'] = 1;
      <!--  <li class="breadcrumb-item"><a href="#">Library</a></li> -->
   </ol>
 </nav>
-<?php
+
+  <?php 
+  if (isset($_GET['lesson_id'])){
+    
+  }
+   ?>
+    
 
 
-if (!is_null(checkUserQuiz($conn, $_SESSION['user_id'], $_SESSION['lesson_id']))) {
-  include 'resultQuiz.php';
-}else{
-
-
-$quiz_no = 1;
-if (isset($_GET['quiz_no'])) {
-  $quiz_no = $_GET['quiz_no'];
-}
-
-?>
-
-
-
-
-<div class="container">
-
-    <div class="card">
-      <div class="card-header"> <h2>Lesson 1 - Quiz <?php echo $quiz_no.' / '.checkFinalQuiz($conn, $_SESSION['lesson_id']); ?></h2></div>
-         <form action="include/quiz.inc.php" method="POST">
-      <div class="card-body p-0">
-
-          <?php  showQuestion($conn, $_SESSION['lesson_id'], $quiz_no); ?>
-
-      </div>
-       
-      <div class="card-footer">
-                  <button type="submit" class="btn btn-success" name="quizBtn">Next</button>
-      </div>
-       </form>
-    </div>
-  </div>
-
-
-<?php } ?>
-
-</div>
-
-
-<br>
-</div>
 </main>
 <?php include 'include/footer.php'; ?>
