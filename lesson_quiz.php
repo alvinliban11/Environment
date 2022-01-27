@@ -100,12 +100,34 @@ if (isset($_GET['quiz_no'])) {
 
           <?php  showQuestion($conn, $_SESSION['lesson_id'], $quiz_no); ?>
 
+
+
+
       </div>
        
       <div class="card-footer">
-                  <button type="submit" class="btn btn-success" name="quizBtn">Next</button>
+             
+              <?php
+                if (isset($_SESSION['revealAns'])) {
+                  if ($_SESSION['revealAns'] == "correct") {
+                    echo 'correct';
+
+                  }
+
+                  if ($_SESSION['revealAns'] == "wrong") {
+                    echo 'wrong';
+                  }
+                  echo ' <button type="submit" class="btn btn-success" name="quizBtn">Next</button>';
+                  unset($_SESSION['revealAns']);
+                }else{
+                  echo ' <button type="submit" class="btn btn-primary" name="revealBtn">Check</button>';
+                }
+
+           ?>    
+                 
       </div>
        </form>
+       
     </div>
   </div>
 
@@ -118,4 +140,20 @@ if (isset($_GET['quiz_no'])) {
 <br>
 </div>
 </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+//     trypo = function() {
+//          $.ajax({
+//     type: 'POST',
+//     url: 'include/show.php',
+//     data: { 'quiz_id'  : '2'},
+//     dataType: "json",
+//     success: function(response) {
+
+
+//     }
+//     });
+// };
+</script>
 <?php include 'include/footer.php'; ?>

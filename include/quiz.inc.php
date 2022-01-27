@@ -1,33 +1,38 @@
 <?php 
 
-if (!isset($_POST['quizBtn'])) {
-	header('Location: ../lesson_quiz.php');
-}
-
 session_start();
 include 'connection.inc.php';
 include 'function.inc.php';
-
-
-if (!isset($_SESSION['score'])) {
-	$_SESSION['score'] = 0;
-}
 
 $quiz_id = $_POST['quiz_id'];
 $userans = $_POST['userans'];
 $number = $_POST['number'];
 
-
-
-$next = ++$number;
-
-
-if (checkAnswer($conn, $quiz_id, $userans)) {
-	$_SESSION['score']++;
-}else{
+if (isset($_POST['revealBtn'])) {
 	
+	if (!isset($_SESSION['revealAns'])) {
+	$_SESSION['revealAns'] = '';
+	}
+
+	if (!isset($_SESSION['score'])) {
+	$_SESSION['score'] = 0;
 }
 
+	if (checkAnswer($conn, $quiz_id, $userans)) {
+	$_SESSION['score']++;
+	$_SESSION['revealAns'] = 'correct';
+	}else{
+	$_SESSION['revealAns'] = 'wrong';	
+	}
+
+	header('Location: ../lesson_quiz.php?quiz_no='.$number);
+
+}
+
+
+
+if (isset($_POST['quizBtn'])) {
+	$next = ++$number;
 
 
 if (checkFinalQuiz($conn, $_SESSION['lesson_id'])  < $number) {
@@ -40,5 +45,10 @@ if (checkFinalQuiz($conn, $_SESSION['lesson_id'])  < $number) {
 }else{
 	header('Location: ../lesson_quiz.php?quiz_no='.$next);
 }
+}
+
+
+
+
 
 
