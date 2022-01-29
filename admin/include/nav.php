@@ -39,7 +39,7 @@
 
             <div class="card bg-light" align="center" style="border:none;">
               <center>
-              <img class="card-img-top" src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png"  alt="Card image" style="width:80px">
+            <!--   <img class="card-img-top" src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png"  alt="Card image" style="width:80px"> -->
               </center>
                <p class="card-text">POGI KO</p>
             </div>
@@ -48,9 +48,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="home.php">Dashboard</a>
                 </li>
-          </ul>
+          </ul> 
 
-          &nbsp;<span class="text-secondary">Action</span>
+          &nbsp;<span class="text-secondary">Data Management</span>
           <ul class="nav flex-column">
                 <li class="nav-item">
                   <a class="nav-link" href="book_manage.php">Books</a>
@@ -60,6 +60,13 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Link</a>
+                </li>
+          </ul>
+
+                    &nbsp;<span class="text-secondary">Record Management</span>
+          <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="course_record.php">Course Record</a>
                 </li>
           </ul>
   

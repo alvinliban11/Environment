@@ -1,4 +1,3 @@
-
 <?php 
 
 //include 'include/header.php';
@@ -11,11 +10,7 @@ $_SESSION['user_id'] = 1;
  ?>
 <!DOCTYPE html>
 <html>
-<head>
-<<<<<<< Updated upstream
-  <meta charset="utf-8">
-  <title></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<heaesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -93,54 +88,11 @@ if (isset($_GET['quiz_no'])) {
 
     <div class="card">
       <div class="card-header"> <h2>Lesson 1 - Quiz <?php echo $quiz_no.' / '.checkFinalQuiz($conn, $_SESSION['lesson_id']); ?></h2></div>
-         <form action="include/quiz.inc.php" method="POST">
+         <form action="include/quiz.i.hp" method="POST">
       <div class="card-body p-0">
 
-          <?php  showQuestion($conn, $_SESSION['lesson_id'], $quiz_no); ?>
-
-
-
-      </div>
-       
-      <div class="card-footer">
-<<<<<<< Updated upstream
-             
-        
-      <div id="showResult">
-        <button type="button" class="btn btn-primary" id="revealBtn">Check</button> 
-=======
-              <button type="button" class="btn btn-primary" id="revealBtn">Check</button>
-              <?php
-                // if (isset($_SESSION['revealAns'])) {
-                //   if ($_SESSION['revealAns'] == "correct") {
-                //     echo 'correct';
-
-                //   }
-
-                //   if ($_SESSION['revealAns'] == "wrong") {
-                //     echo 'wrong';
-                //   }
-                //   echo ' <button type="submit" class="btn btn-success" name="quizBtn">Next</button>';
-                //   unset($_SESSION['revealAns']);
-                // }else{
-                //   echo ' <button type="submit" class="btn btn-primary" name="revealBtn">Check</button>';
-                // }
-
-           ?>    
-                 
->>>>>>> Stashed changes
-      </div>
-               
-</form>
-                
-      </div>
-       
-       
-    </div>
-  </div>
-
-
-<?php } ?>
+          <?p' <b <button type="submit" class="btn btn-success" name="quizBtn">Next</button>" class="btn btn-success" naBtn">Next</button>';
+                //   unset($_SESSION['revehp } ?>
 
 </body>
 <script type="text/javascript">
