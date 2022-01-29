@@ -8,6 +8,31 @@ $quiz_id = $_POST['quiz_id'];
 $userans = $_POST['userans'];
 $number = $_POST['number'];
 
+<<<<<<< Updated upstream
+=======
+if (isset($_POST['revealBtn'])) {
+	
+// 	if (!isset($_SESSION['revealAns'])) {
+// 	$_SESSION['revealAns'] = '';
+// 	}
+
+// 	if (!isset($_SESSION['score'])) {
+// 	$_SESSION['score'] = 0;
+// }
+
+// 	if (checkAnswer($conn, $quiz_id, $userans)) {
+// 	$_SESSION['score']++;
+// 	$_SESSION['revealAns'] = 'correct';
+// 	}else{
+// 	$_SESSION['revealAns'] = 'wrong';	
+// 	}
+
+// 	header('Location: ../lesson_quiz.php?quiz_no='.$number);
+
+}
+
+
+>>>>>>> Stashed changes
 
 if (isset($_POST['quizBtn'])) {
 	$next = ++$number;
