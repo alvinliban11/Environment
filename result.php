@@ -1,3 +1,13 @@
+<?php
+
+
+//include 'include/header.php';
+include 'include/connection.inc.php';
+include 'include/function.inc.php';
+
+
+
+ ?>
 
 <h1 class="text-left">Result</h1>
     <table class="table table-hover">

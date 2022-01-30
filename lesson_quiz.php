@@ -1,6 +1,23 @@
-<?php include 'include/header.php'; ?>
-<head>
+<?php 
+
+//include 'include/header.php';
+include 'include/connection.inc.php';
+include 'include/function.inc.php';
+
+$_SESSION['lesson_id'] = 2;
+$_SESSION['user_id'] = 1;
+
+ ?>
+<!DOCTYPE html>
+<html>
+<heaesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+=======
     <title></title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style type="text/css">
       /* The sidebar menu */
 .sidenav {
@@ -36,108 +53,98 @@
   .sidenav a {font-size: 18px;}
 }
   </style>
+>>>>>>> Stashed changes
 
 </head>
-<main id="main">
-<!-- Side navigation -->
-<div class="sidenav bg-light">
-<div class="list-group">
- <span class="text-primary">Lessons</span>
-  <a href="lesson.php" class="list-group-item list-group-item-action" >Reading: Lesson 1</a>
-  <a href="lesson_quiz.php" class="list-group-item list-group-item-action" style=" border-left: 7px solid green;">Lesson 1 - Quiz</a>
-  <a href="#" class="list-group-item list-group-item-action">...</a>
+<body>
+
+<!-- <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="course_List.php">Course List</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="course_manage.php">Course Code - Book 1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Lessons</li>
+        
+      </ol>
+    </nav>
 </div>
-</div>
-
-<!-- Page content -->
-<div class="main">
+ -->
+<?php
 
 
-  <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-     <li class="breadcrumb-item"><a href="course_List.php">Course List</a></li>
-        <li class="breadcrumb-item" aria-current="page"><a href="course_manage.php">Course Code - Book 1</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Lessons</li>
-     <!--  <li class="breadcrumb-item"><a href="#">Library</a></li> -->
-  </ol>
-</nav>
+if (!is_null(checkUserQuiz($conn, $_SESSION['user_id'], $_SESSION['lesson_id']))) {
+  include 'resultQuiz.php';
+}else{
+
+$quiz_no = 1;
+if (isset($_GET['quiz_no'])) {
+  $quiz_no = $_GET['quiz_no'];
+}
+
+?>
+
 
 <div class="container">
-    <h2>Lesson 1 - Quiz </h2>
-    <div class="jumbotron p-3">
-  <h5>What is the Plant Meaning?</h5>
-  <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio0" name="example1" value="customEx">
-    <label class="custom-control-label" for="customRadio0">Option 1</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio0" name="example1" value="customEx">
-    <label class="custom-control-label" for="customRadio0">Option 2</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio0" name="example1" value="customEx">
-    <label class="custom-control-label" for="customRadio0">Option 3</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio0" name="example1" value="customEx">
-    <label class="custom-control-label" for="customRadio0">Option 4</label>
-  </div>
 
-  </div>
+    <div class="card">
+      <div class="card-header"> <h2>Lesson 1 - Quiz <?php echo $quiz_no.' / '.checkFinalQuiz($conn, $_SESSION['lesson_id']); ?></h2></div>
+         <form action="include/quiz.i.hp" method="POST">
+      <div class="card-body p-0">
 
-      <div class="jumbotron p-3">
-  <h5>What is the Photosynthesis Meaning?</h5>
-  <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio1" name="example2" value="customEx">
-    <label class="custom-control-label" for="customRadio1">Option 1</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio1" name="example2" value="customEx">
-    <label class="custom-control-label" for="customRadio1">Option 2</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio1" name="example2" value="customEx">
-    <label class="custom-control-label" for="customRadio1">Option 3</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio1" name="example2" value="customEx">
-    <label class="custom-control-label" for="customRadio1">Option 4</label>
-  </div>
+          <?p' <b <button type="submit" class="btn btn-success" name="quizBtn">Next</button>" class="btn btn-success" naBtn">Next</button>';
+                //   unset($_SESSION['revehp } ?>
 
-  </div>
+</body>
+<script type="text/javascript">
+  
+  
 
-      <div class="jumbotron p-3">
-  <h5>What is the Sunlight Meaning?</h5>
-  <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio2" name="example3" value="customEx">
-    <label class="custom-control-label" for="customRadio2">Option 1</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio2" name="example3" value="customEx">
-    <label class="custom-control-label" for="customRadio2">Option 2</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio2" name="example3" value="customEx">
-    <label class="custom-control-label" for="customRadio2">Option 3</label>
-  </div>
-    <div class="custom-control custom-radio" style="font-size:15px;">
-    <input type="radio" class="custom-control-input" id="customRadio2" name="example3" value="customEx">
-    <label class="custom-control-label" for="customRadio2">Option 4</label>
-  </div>
+$("#revealBtn").click(function() {
+  var userans = $('input[name="userans"]:checked').val();
+  var quiz_id = $('input[name="quiz_id"]').val();
 
-  </div>
+<<<<<<< Updated upstream
+      $.ajax({
+      type: 'POST',
+      url: 'include/showAnswer.php',
+      data: { 'quiz_id'  : quiz_id , 'userans'  : userans },
+      dataType: "json",
+      success: function(response) {
+        //console.log(response);
 
+        $('#showResult').html(response[0])
 
-</div>
-
-<div class="container">
-    <span class="text-success">Completed</span>
-    <button class="btn btn-primary">Go to Next Lesson</button>
-</div>
-
-
-
+      }
+      });
+=======
 <br>
 </div>
 </main>
-<?php include 'include/footer.php'; ?>
+
+<script type="text/javascript">
+
+  $( "#revealBtn" ).click(function() {
+
+ajax_call1 = function () {
+       $.ajax({
+    type: 'POST',
+    url: 'include/show.php',
+    data: { 'quiz_id'  : '2'},
+    dataType: "json",
+    success: function(response) {
+      console.log(response);
+
+    }
+    });
+
+}
+ajax_call1();
+
+
+>>>>>>> Stashed changes
+});
+
+   
+
+</script>
+</html>
