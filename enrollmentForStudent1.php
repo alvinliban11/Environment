@@ -6,48 +6,60 @@
     <link rel="stylesheet" href="style/enrollmentForNonStudent.css">
 </head>
 <main id="main">
+
        
       
             <div class="col-md-6 col-md-6">
     <form method="POST">
 
+  
+
 
         <h3>ENROLLMENT FORM FOR LEARNER</h3>  
                 <div class="form-group">
-                    Email:<input class="form-control"  id="email" type="text"  placeholder="Email"> 
+                    Email:<input class="form-control"  id="Email" name="Email" type="text"  placeholder="Email"> 
                 </div>
                 <div class="form-group">
-                    Full Name:<input class="form-control" id="fullname" type="text" placeholder="Last Name"> 
+                    First Name:<input class="form-control" id="FirstName" name="FirstName" type="text" placeholder="First Name"> 
                 </div>
                 <div class="form-group">
-                    Birthdate:<input class="form-control" type="date" placeholder="Birthdate"> 
+                    Middle Name:<input class="form-control" id="MiddleName" name="MiddleName" type="text" placeholder="Middle Name"> 
                 </div>
                 <div class="form-group">
-                    Age:<input class="form-control col-5" type="text" placeholder="Select Birthdate First" disabled> 
+                    Last Name:<input class="form-control" id="LastName" name="LastName" type="text" placeholder="Last Name"> 
+                </div>
+                <div class="form-group">
+                    Suffix:<input class="form-control" id="Suffix" name="Suffix" type="text" placeholder="Suffix"> 
+                </div>
+                <div class="form-group">
+                    Birthdate:<input onblur="getAge();" class="form-control" id="Birthdate" name="Birthdate" type="date" placeholder="Birthdate"> 
+                </div>
+                <div class="form-group">
+                    Age:<input class="form-control col-5"  id="Age" name="Age" type="text" value="" placeholder="Select Birthdate First" disabled> 
                 </div>
                 <div class="form-group">
                     Gender:
-                   <select name="" id="" class="form-control col-4">
+                   <select name="Gender" id="Gender" class="form-control col-4">
                        <option value="" disabled>Gender</option>
-                       <option value="">Male</option>
-                       <option value="">Female</option>
-                       <option value="">Others</option>
+                       <option value="Male">Male</option>
+                       <option value="Female">Female</option>
+                       <option value="Others">Others</option>
                    </select>
                 </div>
                 <div class="form-group">
-                    Address:<input class="form-control" type="text" placeholder="Address"> 
+                    Address:<input class="form-control" id="Address" name="Address" type="text" placeholder="Address"> 
                 </div>
                 <div class="form-group">
-                    Contact #:<input class="form-control" type="text" placeholder="Contact"> 
+                    Contact #:<input class="form-control" id="Contact" name="Contact" type="text" placeholder="Contact"> 
                 </div>
        <div class="form-group">
-                    School:<input class="form-control" type="text" placeholder="Work"> 
+                    School:<input class="form-control" id="School" name="School" type="text" placeholder="Work"> 
                 </div>
                     <div class="form-group">
-                    Student ID:<input class="form-control" type="text" placeholder="Student ID"> 
+                    Student ID:<input class="form-control" id="StudentId" name="StudentId" type="text" placeholder="Student ID"> 
                 </div>
             <div class="form-group">
-                    School Address:<input class="form-control" type="text" placeholder="Work Adress"> 
+                    School Address:<input class="form-control" id="SchoolAdd" name="SchoolAdd" type="text" placeholder="Work Adress"> 
                 </div>
 
 
@@ -82,16 +94,43 @@
 
 </main>
 
+<script type="text/javascript">
+
+function getAge(){
+    var dob = document.getElementById('Birthdate').value;
+    dob = new Date(dob);
+    var today = new Date();
+    var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+    document.getElementById('Age').value=age;
+}
+
+</script>
+
+
+
 <script>
        $(document).ready(function(){
            $("#btns").click(function(){
-                var email = $("#email").val();
+
+                var Email = $("#Email").val();
+                var FirstName = $("#FirstName").val();
+                var MiddleName = $("#MiddleName").val();
+                var LastName = $("#LastName").val();
+                var Suffix = $("#Suffix").val();
+                var Birthdate = $("#Birthdate").val();
+                var Age = $("#Age").val();
+                var Gender = $("#Gender").val();
+                var Address = $("#Address").val();
+                var Contact = $("#Contact").val();
+                var School = $("#School").val();
+                var StudentId = $("#StudentId").val();
+                var SchoolAdd = $("#SchoolAdd").val();
 
                 $.ajax({
                     type: "POST",
                     url: "include/add.php",
                     data: {
-                        email
+                        Email , FirstName , MiddleName , LastName , Suffix , Birthdate , Age , Gender , Address , Contact , School , StudentId , SchoolAdd
                     },
                     success: function(data){
                         console.log(data);
@@ -112,6 +151,10 @@
         window.location.href = "course_list.php";
     });
     }    
+
+
+
+
 </script>
 
 <?php include 'include/footer.php'?>

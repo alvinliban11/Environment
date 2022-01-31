@@ -86,7 +86,7 @@
 
 <div class="container">
     <span class="text-success">Completed</span>
-    <a href="lesson_quiz.php" class="btn btn-primary">Go to Next Lesson</a>
+    <a href="lesson2.php" class="btn btn-primary">Go to Next Lesson</a>
 </div>
 
 

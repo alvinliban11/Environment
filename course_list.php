@@ -35,7 +35,7 @@
         </div>
         <hr>
         <p class="card-text"></p>
-        <a href="course_manage.php?course_code=1" class="btn btn-primary btn-block">Continue</a>
+        <a href="Air/course_manage_air.php?course_code=1" class="btn btn-primary btn-block">Continue</a>
       </div>
     </div>
 
