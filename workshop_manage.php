@@ -1,7 +1,24 @@
 <?php include 'include/header.php'; ?>
+
+
+
+
 <title>Workshop Manage</title>
 <link rel="stylesheet" href="style/course_manage.css">
+<?php
 
+// session_start();
+
+  ?>
+  <br>
+  <br>
+  <br>
+  <p id="participantName" value="<?php echo $_SESSION['participant_name'] ?>"><?php echo $_SESSION['participant_name'] ?></p>
+  <p id="learnerId" value="<?php echo $_SESSION['learner_id'] ?>"><?php echo $_SESSION['learner_id'] ?></p>
+  <p id="workshop_id" value="<?php echo $_SESSION['workshop_id'] ?>"><?php echo $_SESSION['workshop_id'] ?></p>
+
+<?php
+?>
 <main id="main">
 
 <div class="container-fluid bg-light p-4" style="margin-top: -80px;">
@@ -59,12 +76,34 @@
 </div>
 
 <div class="container" align="center">
-<button type="button" class="btn btn-success" onclick="msg()">REGISTER NOW</button>
+<button type="button" id="regs" class="btn btn-success" onclick="msg()">REGISTER NOW</button>
 </div>
 </div>
 
 
 </main>
+  <!-- Ajax -->
+
+  <script>
+      $(document).ready(function(){
+        $("#regs").click(function(){
+          var participantName = $('#participantName').attr('value');
+          var learnerId = $('#learnerId').attr('value');
+          var workshop_id = $('#workshop_id').attr('value');
+          $.ajax({
+            type: "POST",
+            url: "include/inc/add.php",
+            data:{
+              participantName, learnerId, workshop_id
+            },
+            success: function(data){
+              console.log(data);
+            }
+          });
+        });
+      });
+  </script>
+<!-- End Ajax -->
    <script type="text/javascript">
           function msg(){
   swal({
@@ -79,7 +118,7 @@
     swal("You are Registered now! We will send confirmation to your email", {
       icon: "success",
         }).then(function() {
-        window.location.href = "workshop_manage.php";
+        window.location.href = "#";
     });
   }
 });

@@ -1,49 +1,53 @@
-<?php $currentPage = 'index'; ?>
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="style/index.css">
-    <title>Dashboard</title>
+  <title>Admin Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php include 'include/header.php'; ?>
 </head>
-<?php include 'include/header.php' ?>
-    <main id="main">
-       <div class="row">
-        <div class="col-xl-5 col-sm-12 col-lg-5"  style="z-index:-2;">
-            <div class="container">
-                <div class="schedule">
-                  <div class="row">
-                      <div class="col-4"><img src="../icons8_calendar_240px_1.png" alt=""></div>
-                      <span class="verticals"></span>
-                      <div class="col-6 text-center"><span>Pending Schedule<p class="text-center" style="font-size: 80px;">10</p></span></div>
-                  </div>
-                </div>
-            </div>       
-        </div>
+<body class="bg-secondary">
 
-           <div class="col-xl-5 col-sm-12 col-lg-5" style="z-index:-2;">
-            <div class="container">
-                <div class="enrollee">
-                  <div class="row">
-                      <div class="col-4"><img src="../icons8_user_64px.png" alt=""></div>
-                      <span class="vertical"></span>
-                      <div class="col-6 text-center"><span>Pending Enrollee<p class="text-center" style="font-size: 80px;">10</p></span></div>
-                  </div>
-                </div>
-            </div>       
-        </div>
+<div class="container mx-auto col-md-4  col-sm-12 bg-dark p-2 text-light" style="margin-top: 100px;">
+  <h2>Admin Login</h2>
 
-           <div class="col-12" style="z-index:-2;">
-               <div class="container">
-                <div class="courses">
-                    <div class="header">Courses Density</div>
-                   <div class="content">
-                       <div class="span"></div>
-                       <div class="span"></div>
-                       <div class="span"></div>
-                       <div class="span"></div>
-                   </div>
-                </div>   
-                </div>
-           </div>
-       </div>
-     
-    </main>
-<?php include 'include/footer.php'; ?>
+  <?php
+ if (isset($_SESSION['err'])){
+
+      if($_SESSION['err'] == "notExist" ){
+            echo ' <div class="alert alert-danger">
+              <strong>Account not found.</strong> Check your email and password.
+            </div>';
+            $_SESSION['err'] = "";
+      }elseif ($_SESSION['err'] == "empty") {
+            echo ' <div class="alert alert-warning">
+              <strong>Warning!</strong> Email or Password is empty.
+            </div>';
+            $_SESSION['err'] = "";
+      }
+
+}
+
+  ?>
+
+  <form action="include/login.inc.php" method="POST">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="name" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+    </div>
+<!--     <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> Remember me (Not Working)
+      </label>
+    </div> -->
+    <button type="submit " class="btn btn-primary btn-block" name="btnLogin">Login</button>
+  </form>
+</div>
+
+</body>
+</html>

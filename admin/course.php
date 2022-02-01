@@ -1,40 +1,49 @@
-<?php include 'include/header.php'; ?>
-<title>Course Manage</title>
-<link rel="stylesheet" href="style/course_manage.css">
+<!DOCTYPE html>
+<html>
 
-<main id="main">
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <?php include 'include/header.php'; ?>
+  <link rel="stylesheet" href="style/home.css">
+</head>
 
-<div class="container-fluid bg-light p-4" style="margin-top: -80px;">
-    <div class="d-flex justify-content-center">
-        <div class="d-flex flex-column">
-          <div class="mx-auto">
-            <img src="img/icon/icons8_recycling_symbol_96px.png" class="rounded" alt="Profile Image" width="100" height="100">
-          </div>
-          <div><h2>Plant Course</h2>
-            Overall Progress
-  <div class="progress">
-        <div class="progress-bar bg-success" style="width:40%"></div>
-        </div>
-          </div>
+<body>
+
+    <?php include 'include/nav.php'; ?>
+
+
+    <div class="container-fluid bg-light p-4">
+        <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column">
+              <div class="mx-auto">
+                <img src="img/icon/icons8_recycling_symbol_96px.png" class="rounded" alt="Profile Image" width="100" height="100">
+              </div>
+              <div><h2>Plant Course</h2>
+                Overall Progress
+      <div class="progress">
+            <div class="progress-bar bg-success" style="width:30%"></div>
+            </div>
+              </div>
+            </div>
         </div>
     </div>
-</div>
 
-<br>
+
 <div class="container">
-<!-- Nav pills -->
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="pill" href="#home">Course Desciption</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="pill" href="#menu1">Books</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="pill" href="#menu2">Result</a>
-  </li>
 
-</ul>
+    <!-- Nav pills -->
+    <ul class="nav nav-pills" id="myTab">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Course Desciption</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu2">Result</a>
+          </li>
+    </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
@@ -90,16 +99,44 @@
   </div>
   <div class="tab-pane container fade" id="menu1">
     <br>
-      <?php include 'book_list.php'; ?>
+      <?php include 'course_books.php'; ?>
   </div>
   <div class="tab-pane container fade" id="menu2">
         <br>
-      <?php include 'result.php'; ?>
+      <?php //include 'result.php'; ?>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
-
-
-</main>
-
-<?php include 'include/footer.php'; ?>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+    localStorage.setItem('activeTab', $(e.target).attr('href'));
+  });
+  var activeTab = localStorage.getItem('activeTab');
+  if(activeTab){
+    $('#myTab a[href="' + activeTab + '"]').tab('show');
+  }
+});
+</script>
+</body>
+</html>
