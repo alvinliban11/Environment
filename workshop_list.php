@@ -1,4 +1,15 @@
 <?php include 'include/header.php' ?>
+<?php
+
+// session_start();
+
+$participant = $_SESSION['participant_name'] = "Alvin";
+
+$learner_id = $_SESSION['learner_id'] = 1001;
+
+$_SESSION['workshop_id'] = 1;
+
+?>
 <head>
   <title>Workshop</title>
  
