@@ -13,7 +13,7 @@
           <div><h2>Plant Course</h2>
             Overall Progress
   <div class="progress">
-        <div class="progress-bar bg-success" style="width:30%"></div>
+        <div class="progress-bar bg-success" style="width:40%"></div>
         </div>
           </div>
         </div>
