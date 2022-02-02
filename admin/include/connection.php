@@ -3,7 +3,7 @@
 	$servername="localhost";
 	$username="root";
 	$password="";
-	$dbname="noobprojectdb";
+	$dbname="environmental_db";
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $dbname);

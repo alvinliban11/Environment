@@ -1,5 +1,6 @@
 <?php
-
+include 'connection.php';
+include 'function.inc.php';
 
 //ADD BOOK MODAL BUTTON
 if (isset($_POST['addBookBtn'])) {
@@ -7,7 +8,9 @@ if (isset($_POST['addBookBtn'])) {
 	$book_author = $_POST['book_author'];
 	$book_desc = $_POST['book_desc'];
 
-	echo $book_name.$book_author.$book_desc;
+	if (addBook($conn, $book_name,$book_author, $book_desc)) {
+		header('Location: ../book_manage.php');
+	}
 	unset($_POST['addBookBtn']);
 }
 

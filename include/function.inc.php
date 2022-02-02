@@ -1,6 +1,4 @@
 <?php 
-
-
 function showQuestion($conn, $lesson_id, $quiz_no){
 		$sql = "SELECT * FROM quiztbl WHERE lesson_id = '".$lesson_id."' AND quiz_no = '".$quiz_no."'";
 		$result = mysqli_query($conn, $sql);
@@ -81,7 +79,7 @@ function checkFinalQuiz($conn, $lesson_id){
 //Register Function
 function regResult($conn, $user_id,$lesson_id, $score,$total_item){
 		// prepare and bind
-		$stmt = $conn->prepare("INSERT INTO resulttbl (user_id, lesson_id, score,total_item) VALUES (?, ?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO resulttbl (learner_id, lesson_id, score, total_item) VALUES (?, ?, ?, ?)");
 		$stmt->bind_param("ssss", $d1, $d2, $d3, $d4);
 
 		// set parameters and execute
@@ -99,8 +97,8 @@ function regResult($conn, $user_id,$lesson_id, $score,$total_item){
 }
 
 
-function checkUserQuiz($conn, $user_id, $lesson_id){
-		$sql = "SELECT * FROM  resulttbl WHERE user_id = '".$user_id."' AND lesson_id = '".$lesson_id."'";
+function checkUserQuiz($conn, $learner_id, $quiz_id){
+		$sql = "SELECT * FROM  resulttbl WHERE lesson_id = '".$quiz_id."' AND learner_id = '".$learner_id."'";
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
 				 if($row = mysqli_fetch_assoc($result)) {
@@ -124,4 +122,65 @@ function showResult($conn, $user_id){
 	//	mysqli_close($conn);
 }
 
+function incQuizNo($conn, $lesson_id){
+		$sql = "SELECT * FROM  quiztbl WHERE lesson_id = '".$lesson_id."' ORDER BY quiz_no DESC;";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+				 if($row = mysqli_fetch_assoc($result)) {
+		   			return $row['quiz_no'];
+		  }
+		}
+
+	//	mysqli_close($conn);
+}
+
+//SHOW CONTEXT
+function showContext($conn, $lesson_id){
+		$sql = "SELECT * FROM lessontbl WHERE lesson_id = '".$lesson_id."'";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+				 while($row = mysqli_fetch_assoc($result)) {
+  					return $row['context'];
+
+		  }
+		}
+
+	//	mysqli_close($conn);
+}
+
+
+//SHOW  LESSON FUNCTION
+function showLesson($conn, $context_id){
+		$sql = "SELECT * FROM lessontbl WHERE context_id = '".$context_id."'";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+				 while($row = mysqli_fetch_assoc($result)) {
+				 		echo '
+					 <li class="nav-item d-flex justify-content-between align-items-center" >
+						     <a class="nav-link" href="course.php?context_id='.$row['context_id'].'&lesson_id='.$row['lesson_id'].'"><b>Reading:</b> '.$row['lesson_name'].'</a>
+						</li>
+						';
+							showQuizzes($conn, $row['lesson_id'],$row['context_id']);
+		  }
+		}
+
+	//	mysqli_close($conn);
+}
+
+//SHOW  LESSON FUNCTION
+function showQuizzes($conn, $lesson_id,$context_id){
+		$sql = "SELECT DISTINCT lesson_id FROM quiztbl WHERE lesson_id = '".$lesson_id."'";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+				 while($row = mysqli_fetch_assoc($result)) {
+  					echo '
+					 <li class="nav-item d-flex justify-content-between align-items-center">
+						     <a class="nav-link"  href="course.php?context_id='.$context_id.'&qlesson_id='.$row['lesson_id'].'"><b>Quiz:</b>'.$row['lesson_id'].'</a>
+						</li>
+						';
+		  }
+		}
+
+	//	mysqli_close($conn);
+}
 
