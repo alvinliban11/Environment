@@ -1,9 +1,10 @@
-<?php include 'include/header.php'; ?>
+<?php include 'include/header_links.php'; ?>
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="style/login.css">
      <link rel="stylesheet" href="style/signUp.css?v=<?php echo time() ?>">
 </head>
+
 <?php 
 if (isset($_POST['btnLogin'])) {
    $_SESSION['learner_id'] = "1001";
@@ -12,6 +13,7 @@ if (isset($_POST['btnLogin'])) {
 
 ?>
 <main id="main">
+       <?php include 'include/nav.php' ?>
     <form action="" method="POST">
         <div class="container">
             <h3>Login</h3>

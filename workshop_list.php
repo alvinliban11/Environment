@@ -1,4 +1,4 @@
-<?php include 'include/header.php' ?>
+<?php include 'include/header_links.php' ?>
 <?php
 
 // session_start();
@@ -15,6 +15,7 @@ $_SESSION['workshop_id'] = 1;
  
 </head>
       <main id="main">
+         <?php include 'include/nav.php' ?>
         <div class="container">
             <h1 class="text-dark">Workshop</h1>
 

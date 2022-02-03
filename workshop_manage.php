@@ -1,4 +1,4 @@
-<?php include 'include/header.php'; ?>
+<?php include 'include/header_links.php'; ?>
 
 
 
@@ -20,7 +20,7 @@
 <?php
 ?>
 <main id="main">
-
+ <?php include 'include/nav.php' ?>
 <div class="container-fluid bg-light p-4" style="margin-top: -80px;">
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column">

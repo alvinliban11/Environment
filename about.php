@@ -1,10 +1,11 @@
-<?php include 'include/header.php' ?>
+<?php include 'include/header_links.php' ?>
 
 <head>
     <title>About</title>
     <link rel="stylesheet" href="style/about.css?v=<?php echo time(); ?>">
 </head>
 <main id="main">
+       <?php include 'include/nav.php' ?>
     <div class="container">
        <div class="main">
            <div class="header"><h1>NAGKAISANG NAYON MOOCS ENVIRONMENTAL SYSTEM</h1></div>

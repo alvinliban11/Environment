@@ -1,10 +1,11 @@
-<?php include 'include/header.php'; ?>
+<?php include 'include/header_links.php'; ?>
 <head>
     <title>Contact Us</title>
     <link rel="stylesheet" href="style/contact.css?v=<?php echo time(); ?>">
 
 </head>
 <main id="main">
+     <?php include 'include/nav.php' ?>
 <h1 class="text-left">CONTACT US</h1>
 <div class="main-container">
 <div class="container">

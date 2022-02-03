@@ -1,4 +1,4 @@
-<?php include 'include/header.php';  ?>
+<?php include 'include/header_links.php';  ?>
 
 
 <head>
@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style/enrollmentForNonStudent.css">
 </head>
 <main id="main">
-       
+        <?php include 'include/nav.php' ?>
       
             <div class="col-md-6 col-md-6">
     <form method="POST">
