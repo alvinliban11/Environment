@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Environmental</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto ">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -34,41 +34,6 @@
   </div>
 </nav>
 
-      <!-- Side navigation -->
-        <div class="sidenav bg-light">
 
-            <div class="card bg-light" align="center" style="border:none;">
-              <center>
-            <!--   <img class="card-img-top" src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png"  alt="Card image" style="width:80px"> -->
-              </center>
-               <p class="card-text">POGI KO</p>
-            </div>
-<hr>
-          <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="home.php">Dashboard</a>
-                </li>
-          </ul> 
 
-          &nbsp;<span class="text-secondary">Data Management</span>
-          <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="book_manage.php">Books</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="course_manage.php">Course</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-          </ul>
-
-                    &nbsp;<span class="text-secondary">Record Management</span>
-          <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="course_record.php">Course Record</a>
-                </li>
-          </ul>
-  
-        </div>
-
+        

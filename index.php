@@ -1,10 +1,11 @@
 <?php $currentPage = "index" ?>
-<?php include 'include/header.php' ?>
+<?php include 'include/header_links.php' ?>
 <head>
     <title>Landing Page</title>
     <link rel="stylesheet" href="style/index.css?v=<?php echo time(); ?>">
 </head>
 <main id="main">
+    <?php include 'include/nav.php' ?>
     <div class="container">
         <div class="row">
             <div class="col-xl-6 col-md-12 text-center">

@@ -1,4 +1,4 @@
-<?php include 'include/header.php'; ?>
+<?php include 'include/header_links.php'; ?>
 <head>
     <title>Lesson</title>
   <style type="text/css">

@@ -1,14 +1,4 @@
 
-<!-- Footer 
-<div class="footer">
-   <!--
-<footer class="p-3 font-weight-bold text-white">
-
-    <div class=" text-center">© 2021 Copyright: Capstone</div>  
-</div>
-</div>
--->
-
     <!-- Script for bootstrap and JQuery -->
     <script>
         let main = document.getElementById("main");

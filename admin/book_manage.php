@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>Books Manage</title>
@@ -10,9 +10,19 @@
 
 <body>
 
-    <?php include 'include/nav.php'; ?>
-
-<div class="container">
+    <?php 
+    include 'include/nav.php'; 
+    include 'include/connection.php';
+    include 'include/function.inc.php';
+    ?>
+    <!-- SIDEBAR -->
+        <div class="container-fluid">
+                <div class="row">
+                        <div class="col-md-2  col-sm-12 mx-auto">
+                          <?php include 'include/sidebar.php'; ?>
+                        </div>
+                <div class="col-md-10 col-sm-12 ">
+     <!--END SIDEBAR -->                       
 <br>
     
     <div class="jumbotron p-4" style="border-top:4px solid green;">
@@ -31,18 +41,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>0001</td>
-        <td>Environmental Book</td>
-        <td>John Doe</td>
-        <td>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Doloremque ipsa dolore perspiciatis esse voluptatibus.</td>
-        <td>
-            <div class="btn-group">
-              <button type="button" class="btn btn-warning btn-sm" id="showBook"><i class="fas fa-eye"></i></button>
-              <button type="button" class="btn btn-danger btn-sm " id="removeBook"><i class="fas fa-trash"></i></button>
-            </div>
-        </td>
-      </tr>
+        <?php showBooks($conn); ?> 
     </tbody>
   </table>
   </div>
@@ -171,8 +170,12 @@
 
 
 
+  <!--START CLOSING SIDEBAR -->  
+        </div>
+                </div>
+        </div>
 
-</div>
+  <!--END CLOSING SIDEBAR -->  
 <script type="text/javascript">
   $(document).ready(function() {
     $('#book_table').DataTable();

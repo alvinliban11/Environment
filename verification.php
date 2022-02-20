@@ -1,10 +1,11 @@
-<?php include 'include/header.php' ?>
+<?php include 'include/header_links.php' ?>
 <head>
     <title>Verification</title>
     <link rel="stylesheet" href="style/signUp.css?v=<?php echo time() ?>">
 
 </head>
 <main id="main">
+     <?php include 'include/nav.php' ?>
     <form action="" method="POST">
         <div class="container">
             <h3>Verification Email</h3>

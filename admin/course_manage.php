@@ -10,39 +10,39 @@
 
 <body>
 
-    <?php include 'include/nav.php'; ?>
+    <?php 
+    include 'include/nav.php'; 
+    include 'include/connection.php';
+    include 'include/function.inc.php';
+    ?>
 
-<div class="container">
+    <!-- SIDEBAR -->
+        <div class="container-fluid">
+                <div class="row">
+                        <div class="col-md-2  col-sm-12 mx-auto">
+                          <?php include 'include/sidebar.php'; ?>
+                        </div>
+                <div class="col-md-10 col-sm-12 ">
+     <!--END SIDEBAR -->      
 <br>
     
     <div class="jumbotron p-4" style="border-top:4px solid green;">
     <h3>Course Manage</h3>
-        <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#addBook"><i class="fas fa-plus"></i> Add Course</button><br><br>
+        <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#addCourse"><i class="fas fa-plus"></i> Add Course</button><br><br>
 
     <div class="table-responsive">
     <table class="table table-hover bg-light" id="book_table">
     <thead>
       <tr>
-        <th>Book ID</th>
-        <th>Book Name</th>
-        <th>Author/s</th>
+        <th>Course Code</th>
+        <th>Course Name</th>
         <th>Description</th>
+        <th>Syllabus</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>0001</td>
-        <td>Environmental Book</td>
-        <td>John Doe</td>
-        <td>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Doloremque ipsa dolore perspiciatis esse voluptatibus.</td>
-        <td>
-            <div class="btn-group">
-              <button type="button" class="btn btn-warning btn-sm" id="showBook"><i class="fas fa-eye"></i></button>
-              <button type="button" class="btn btn-danger btn-sm " id="removeBook"><i class="fas fa-trash"></i></button>
-            </div>
-        </td>
-      </tr>
+      <?php showCourse($conn); ?>
     </tbody>
   </table>
   </div>
@@ -50,7 +50,7 @@
 
   
 <!-- ADD BOOK Modal -->
-<div class="modal" id="addBook">
+<div class="modal" id="addCourse">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -60,28 +60,31 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
-      <form action="include/book_manage.inc.php" method="POST">
+      <form action="include/course_manage.inc.php" method="POST">
       <!-- Modal body -->
       <div class="modal-body">
-            
             <div class="form-group">
-              <label for="book_name">Book Name</label>
-              <input type="text" class="form-control" placeholder="Enter Book Name" id="book_name" name="book_name">
+              <label for="course_code">Course Code</label>
+              <input type="text" class="form-control" placeholder="Enter Course Code" id="course_code" name="course_code">
             </div>
             <div class="form-group">
-              <label for="book_author">Author/s</label>
-              <input type="text" class="form-control" placeholder="Enter Author/s" id="book_author" name="book_author">
+              <label for="course_name">Course Name</label>
+              <input type="text" class="form-control" placeholder="Enter Course Name" id="course_name" name="course_name">
             </div>
             <div class="form-group">
-              <label for="book_desc">Book Desctription</label>
-              <textarea class="form-control" rows="5" id="book_desc" name="book_desc"></textarea>
+              <label for="course_desc">Description</label>
+              <textarea class="form-control" rows="5" id="course_desc" name="course_desc"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="course_syllabus">Syllabus</label>
+              <input type="text" class="form-control" placeholder="Enter Syllabus" id="course_syllabus" name="course_syllabus">
             </div>
         
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success" name="addBookBtn">Save</button>
+        <button type="submit" class="btn btn-success" name="addCourseBtn">Save</button>
       </div>
   </form>
 
@@ -91,7 +94,7 @@
 
 
 <!-- SHOW BOOK Modal -->
-<div class="modal" id="showBookModal">
+<div class="modal" id="showCourseModal">
   <div class="modal-dialog" >
     <div class="modal-content">
 
@@ -139,7 +142,7 @@
 
 
 <!-- DELETE BOOK Modal -->
-<div class="modal" id="removeBookModal">
+<div class="modal" id="removeCourseModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
 
@@ -172,13 +175,18 @@
 
 
 
-</div>
+  <!--START CLOSING SIDEBAR -->  
+        </div>
+                </div>
+        </div>
+
+  <!--END CLOSING SIDEBAR -->  
 <script type="text/javascript">
   $(document).ready(function() {
     $('#book_table').DataTable();
 //SHOW MODAL 
-$('#showBook').on('click',function(){
-    $('#showBookModal').modal('show');
+$('#showCourse').on('click',function(){
+    $('#showCourseModal').modal('show');
 
     $tr =$(this).closest('tr');
     var data = $tr.children("td").map(function(){
@@ -204,8 +212,8 @@ $('#showBook').on('click',function(){
 
 });
 // REMOVE MODAL
-$('#removeBook').on('click',function(){
-    $('#removeBookModal').modal('show');
+$('#removeCourse').on('click',function(){
+    $('#removeCourseModal').modal('show');
 
     $tr =$(this).closest('tr');
     var data = $tr.children("td").map(function(){
